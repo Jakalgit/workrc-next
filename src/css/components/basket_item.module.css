@@ -1,0 +1,373 @@
+/* Стиль айтема в корзине */
+.item {
+    height: 11rem;
+    background-color: #fff;
+    border-radius: 1.4rem;
+    box-shadow: 0 0.2rem 0.8rem 0.4rem rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    margin-top: 4rem;
+}
+.text_block {
+    width: 45%;
+}
+.item_name {
+    margin-top: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.9rem;
+    margin-bottom: 0;
+}
+.image {
+    height: 10rem;
+    width: 10rem;
+    margin-right: 2rem;
+    margin-left: 3rem;
+}
+.image:hover {
+    cursor: pointer;
+}
+.first_price {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+.article {
+    font-size: 1.1rem;
+    font-family: 'Montserrat', sans-serif;
+    color: #546E7A;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+.counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+}
+.count {
+    width: 6rem;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem;
+    margin: 0;
+}
+.change {
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: all 0.2s;
+}
+.change:hover {
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+.chevron {
+    height: 1.8rem;
+    width: 1.8rem;
+}
+.full_price_block {
+    width: 20%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.full_price {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.7rem;
+    text-align: center;
+    margin-bottom: 0;
+}
+.delete_item {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.4rem;
+    height: 3.4rem;
+    background-color: #232323;
+    border-radius: 2rem;
+    transition: all 0.2s;
+    margin-left: auto;
+    top: -48%;
+    left: 1.8rem;
+}
+.delete_item:hover {
+    cursor: pointer;
+}
+.delete {
+    height: 2.1rem;
+    width: 2.1rem;
+}
+@media (max-width: 1399px) {
+    .text_block {
+        width: 43%;
+    }
+}
+@media (max-width: 1199px) {
+    .image {
+        margin-left: 2.5rem;
+    }
+}
+@media (max-width: 991px) {
+    .item {
+        border-radius: 1.2rem;
+        height: 10rem;
+    }
+    .image {
+        margin-left: 1.5rem;
+        margin-right: 1.2rem;
+        width: 9rem;
+        height: 9rem;
+    }
+    .item_name {
+        font-size: 1.5rem;
+    }
+    .text_block {
+        width: 47%;
+    }
+    .counter {
+        width: 18%;
+    }
+    .count {
+        width: 3.8rem;
+        font-size: 2.3rem;
+    }
+    .change {
+        width: 1.8rem;
+        height: 1.8rem;
+    }
+    .change:hover {
+        cursor: pointer;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+    .chevron {
+        height: 1.4rem;
+        width: 1.4rem;
+    }
+    .full_price {
+        font-size: 2rem;
+    }
+    .article {
+        font-size: 0.9rem;
+    }
+    .first_price {
+        font-size: 1.2rem;
+    }
+    .delete_item {
+        width: 2.8rem;
+        height: 2.8rem;
+        top: -44%;
+        left: 1.4rem;
+    }
+    .delete {
+        width: 1.8rem;
+        height: 1.8rem;
+    }
+}
+@media (max-width: 767px) {
+    .item {
+        margin-top: 3rem;
+        border-radius: 1rem;
+        height: 9rem;
+        box-shadow: 0 0.2rem 0.8rem 0.1rem rgba(0, 0, 0, 0.25);
+    }
+    .image {
+        margin-left: 1rem;
+        margin-right: 0.8rem;
+        width: 8rem;
+        height: 8rem;
+    }
+    .item_name {
+        font-size: 1.1rem;
+        margin-top: 0.3rem;
+    }
+    .text_block {
+        width: 46%;
+    }
+    .counter {
+        width: 16%;
+    }
+    .count {
+        width: 3rem;
+        font-size: 1.8rem;
+    }
+    .change {
+        width: 1.4rem;
+        height: 1.4rem;
+    }
+    .change:hover {
+        cursor: pointer;
+    }
+    .chevron {
+        height: 1rem;
+        width: 1rem;
+    }
+    .full_price {
+        font-size: 1.5rem;
+    }
+    .article {
+        font-size: 0.8rem;
+    }
+    .first_price {
+        font-size: 1rem;
+        margin-top: 0.3rem;
+    }
+    .delete_item {
+        width: 2.3rem;
+        height: 2.3rem;
+        top: -44%;
+        left: 1.4rem;
+    }
+    .delete {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+}
+@media (max-width: 575px) {
+    .item {
+        width: 95%;
+        margin-left: 2.5%;
+        margin-top: 2rem;
+        border-radius: 0.9rem;
+        height: 8rem;
+    }
+    .image {
+        margin-left: 0.5rem;
+        margin-right: 0.4rem;
+        width: 7rem;
+        height: 7rem;
+    }
+    .item_name {
+        font-size: 0.9rem;
+    }
+    .count {
+        width: 2.2rem;
+        font-size: 1.3rem;
+    }
+    .change {
+        width: 1.2rem;
+        height: 1.2rem;
+    }
+    .change:hover {
+        cursor: pointer;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    .chevron {
+        height: 0.8rem;
+        width: 0.8rem;
+    }
+    .full_price {
+        font-size: 1.3rem;
+    }
+    .article {
+        font-size: 0.7rem;
+    }
+    .first_price {
+        font-size: 0.8rem;
+    }
+    .delete_item {
+        width: 2rem;
+        height: 2rem;
+        top: -44%;
+        left: 1.4rem;
+    }
+    .delete {
+        width: 1.3rem;
+        height: 1.3rem;
+    }
+}
+@media (max-width: 500px) {
+    .item {
+        border-radius: 0.8rem;
+        height: 7rem;
+    }
+    .image {
+        margin-left: 0.3rem;
+        margin-right: 0.3rem;
+        width: 6rem;
+        height: 6rem;
+    }
+    .item_name {
+        font-size: 0.8rem;
+    }
+    .count {
+        width: 2rem;
+        font-size: 1.1rem;
+    }
+    .change {
+        width: 1.1rem;
+        height: 1.1rem;
+    }
+    .chevron {
+        height: 0.75rem;
+        width: 0.75rem;
+    }
+    .full_price {
+        font-size: 1.1rem;
+    }
+    .article {
+        font-size: 0.6rem;
+    }
+    .first_price {
+        font-size: 0.7rem;
+    }
+    .delete_item {
+        width: 1.6rem;
+        height: 1.6rem;
+        top: -44%;
+        left: 1.4rem;
+    }
+    .delete {
+        width: 1.1rem;
+        height: 1.1rem;
+    }
+}
+@media (max-width: 410px) {
+    .item {
+        height: 6rem;
+    }
+    .image {
+        margin-left: 0;
+        width: 5.5rem;
+        height: 5.5rem;
+    }
+    .item_name {
+        font-size: 0.8rem;
+    }
+    .count {
+        width: 1.8rem;
+        font-size: 0.9rem;
+    }
+    .change {
+        width: 1rem;
+        height: 1rem;
+    }
+    .chevron {
+        height: 0.7rem;
+        width: 0.7rem;
+    }
+    .full_price {
+        font-size: 0.9rem;
+    }
+    .article {
+        font-size: 0.5rem;
+    }
+    .first_price {
+        font-size: 0.6rem;
+    }
+    .delete_item {
+        width: 1.5rem;
+        height: 1.5rem;
+        top: -43%;
+        left: 1.2rem;
+    }
+    .delete {
+        width: 0.9rem;
+        height: 0.9rem;
+    }
+}

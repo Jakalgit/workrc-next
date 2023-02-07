@@ -1,12 +1,13 @@
 import {useState} from 'react';
 import style_css from "@/css/components/find_line.module.css"
-import {useTypedSelector} from "@/hooks/useTypedSelector";
 import {useActions} from "@/hooks/useActions";
-//import {FIND_ROUTE} from "../utils/consts";
+import {FIND_ROUTE} from "@/utils/consts";
+import {useRouter} from "next/router";
 
 function FindLine({length}) {
 
     const {setSearchValue} = useActions()
+    const router = useRouter()
 
     const [search, setSearch] = useState()
 
@@ -14,7 +15,7 @@ function FindLine({length}) {
 
         if (search) {
             setSearchValue(search)
-            //navigate(FIND_ROUTE)
+            router.push(FIND_ROUTE).then()
         }
 
     }

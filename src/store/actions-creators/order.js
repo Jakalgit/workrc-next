@@ -2,11 +2,14 @@ import {
     SET_EMAIL,
     SET_FIRST_NAME, SET_FLAT, SET_HOUSE, SET_INDEX,
     SET_LAST_NAME,
-    SET_NUMBER, SET_PHONE, SET_PRICE,
+    SET_NUMBER, SET_ORDER_STATE, SET_PHONE, SET_PRICE,
     SET_SECOND_NAME, SET_STREET,
     SET_TOKEN, SET_TYPE_DELIVERY, SET_TYPE_PAY
 } from "@/store/reducers/orderReducer/orderReducerActions";
 
+export const setOrderState = (payload) => {
+    return {type: SET_ORDER_STATE, payload}
+}
 export const setToken = (payload) => {
     return {type: SET_TOKEN, payload}
 }

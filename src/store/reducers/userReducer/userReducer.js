@@ -2,7 +2,7 @@ import {
     SET_BASKET,
     SET_CURRENT_TAGS,
     SET_SEARCH_VALUE,
-    SET_USER
+    SET_USER, SET_USER_STATE
 } from "@/store/reducers/userReducer/userReducerActions";
 
 const initialState = {
@@ -14,6 +14,8 @@ const initialState = {
 
 export const userReducer = (state = initialState, action) => {
     switch (action.type){
+        case SET_USER_STATE:
+            return action.payload
         case SET_USER:
             return {...state, _user: action.payload}
         case SET_BASKET:

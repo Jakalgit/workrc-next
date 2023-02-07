@@ -1,4 +1,10 @@
-import {SET_BASKET_ITEMS, SET_LIMIT, SET_PAGE, SET_TOTAL_COUNT} from "@/store/reducers/itemReducer/itemReducerActions";
+import {
+    SET_BASKET_ITEMS,
+    SET_ITEM_STATE,
+    SET_LIMIT,
+    SET_PAGE,
+    SET_TOTAL_COUNT
+} from "@/store/reducers/itemReducer/itemReducerActions";
 
 
 const initialState = {
@@ -10,6 +16,8 @@ const initialState = {
 
 export const itemReducer = (state = initialState, action) => {
     switch (action.type) {
+        case SET_ITEM_STATE:
+            return action.payload
         case SET_BASKET_ITEMS:
             return {...state, _basketItems: action.payload}
         case SET_PAGE:

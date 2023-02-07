@@ -2,7 +2,7 @@ import {
     SET_EMAIL,
     SET_FIRST_NAME, SET_FLAT, SET_HOUSE, SET_INDEX,
     SET_LAST_NAME,
-    SET_NUMBER, SET_PHONE, SET_PRICE,
+    SET_NUMBER, SET_ORDER_STATE, SET_PHONE, SET_PRICE,
     SET_SECOND_NAME, SET_STREET,
     SET_TOKEN, SET_TYPE_DELIVERY, SET_TYPE_PAY
 } from "@/store/reducers/orderReducer/orderReducerActions";
@@ -26,6 +26,8 @@ const initialState = {
 
 export const orderReducer = (state = initialState, action) => {
     switch (action.type) {
+        case SET_ORDER_STATE:
+            return action.payload
         case SET_TOKEN:
             return {...state, _token: action.payload}
         case SET_NUMBER:

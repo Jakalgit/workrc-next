@@ -1,3 +1,4 @@
+export const SET_USER_STATE = "SET_USER_STATE"
 export const SET_USER = "SET_USER"
 export const SET_BASKET = "SET_BASKET"
 export const SET_SEARCH_VALUE = "SET_SEARCH_VALUE"

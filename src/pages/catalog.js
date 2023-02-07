@@ -21,7 +21,9 @@ import {wrapper} from "@/store";
 import firebase from "firebase/compat/app";
 import {firebaseConfig} from "@/utils/config";
 import {connect} from "react-redux";
-import {setTotalCount} from "@/store/actions-creators/item";
+import {setItemState, setTotalCount} from "@/store/actions-creators/item";
+import {getCookie, getCookies} from "cookies-next";
+import {setUserState} from "@/store/actions-creators/user";
 
 function Catalog({ serverItems }) {
 
@@ -222,13 +224,22 @@ function Catalog({ serverItems }) {
     );
 }
 
-export const getServerSideProps = wrapper.getServerSideProps((store) => async () => {
-    let result = []
+export const getServerSideProps = wrapper.getServerSideProps((store) => async ({ req, res }) => {
     firebase.initializeApp(firebaseConfig)
+    let result = []
+
+    const userCookie = getCookie('user',{ req, res });
+    const itemCookie = getCookie('item',{ req, res });
+
+    store.dispatch(setUserState(JSON.parse(userCookie)))
+    store.dispatch(setItemState(JSON.parse(itemCookie)))
+
     const user = await store.getState().user
     const item = await store.getState().item
+
     const currentTags = JSON.stringify(user._currentTags)
     const dataItems = await fetchPageItems(true, true, null, item._page, currentTags)
+
     store.dispatch(setTotalCount(dataItems.count))
     if (dataItems.rows.length !== 0) {
         let _itemIDs = []

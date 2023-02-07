@@ -1,3 +1,4 @@
+export const SET_ORDER_STATE = "SET_ORDER_STATE"
 export const SET_TOKEN = "SET_TOKEN"
 export const SET_NUMBER = "SET_NUMBER"
 export const SET_FIRST_NAME = "SET_FIRST_NAME"
