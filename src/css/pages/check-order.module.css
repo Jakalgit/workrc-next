@@ -1,6 +1,6 @@
 /* Стиль блока */
 .check_order {
-    margin-top: 17rem;
+    margin-top: 14rem;
 }
 .left_block,
 .right_block {
@@ -9,10 +9,10 @@
 .check_order_text {
     text-align: center;
     font-family: 'Raleway', sans-serif;
-    font-size: 5rem;
+    font-size: 4rem;
 }
 .header_info {
-    margin-top: 7rem;
+    margin-top: 5rem;
     text-align: center;
     font-family: 'Raleway', sans-serif;
     font-weight: bold;
@@ -27,13 +27,13 @@
 }
 .right {
     background-color: #000;
-    margin-top: 12rem;
+    margin-top: 8rem;
     height: 8rem;
     font-size: 3rem;
     color: #fff;
     font-family: 'Raleway', sans-serif;
     font-weight: bold;
-    border-radius: 0.5rem;
+    border-radius: 1rem;
     border-style: none;
     transition: all 0.2s;
 }
@@ -50,16 +50,14 @@
     font-family: 'Raleway', sans-serif;
 }
 .captcha_block {
-    display: flex;
-    margin-top: 5rem;
-    margin-bottom: 5rem;
+    display: inline-flex;
+    margin-top: 8.5rem;
     align-items: center;
     justify-content: center;
-    width: 100%;
 }
 @media (max-width: 1199px) {
     .check_order_text {
-        font-size: 4rem;
+        font-size: 3.5rem;
     }
     .header_info {
         font-size: 2.7rem;
@@ -69,19 +67,22 @@
     }
     .right {
         font-size: 2.7rem;
-        margin-top: 11rem;
+        margin-top: 8rem;
     }
 }
 @media (max-width: 991px) {
     .right {
         height: 7rem;
         font-size: 2.5rem;
-        margin-top: 12rem;
+        margin-top: 8.5rem;
     }
 }
 @media (max-width: 767px) {
     .check_order_text {
-        font-size: 3.5rem;
+        font-size: 3rem;
+    }
+    .check_order {
+        margin-top: 11rem;
     }
     .header_info {
         font-size: 2.2rem;
@@ -91,6 +92,10 @@
     }
     .right {
         font-size: 2.2rem;
+        margin-top: 4rem;
+    }
+    .captcha_block {
+        margin-top: 4rem;
     }
 }
 @media (max-width: 575px) {

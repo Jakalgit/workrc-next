@@ -216,15 +216,19 @@ function CheckOrder() {
                                             <h2 className={CheckOrderCss.info}>{order._house}</h2>
                                     }
                                     <h2 className={CheckOrderCss.info}>{order._price + ' ₽'}</h2>
-                                    <button onClick={createOrderUser}
-                                            className={CheckOrderCss.right + ' col-xxl-6 offset-xxl-3 col-xl-6 offset-xl-3 col-lg-8 offset-lg-2 col-md-10 offset-md-1 col-sm-10 offset-sm-1 col-10 offset-1'}>Всё
-                                        верно
-                                    </button>
                                 </div>
                             </Fade>
                             <Fade bottom>
-                                <div className={CheckOrderCss.captcha_block}>
-                                    <ReCAPTCHA sitekey={'6Lc3XqwfAAAAANThcBTPkUFT38GRBA6IvTK7oUpi'} onChange={() => setCaptcha(true)} onExpired={() => setCaptcha(false)} />
+                                <div className="row">
+                                    <div className={CheckOrderCss.captcha_block + ' col-xxl-6 offset-xxl-0 col-xl-5 offset-xl-0 col-lg-5 ' +
+                                        'offset-lg-0 col-md-5 offset-md-0 col-sm-12 offset-sm-0 col-10 offset-1'}>
+                                        <ReCAPTCHA sitekey={'6Lc3XqwfAAAAANThcBTPkUFT38GRBA6IvTK7oUpi'} onChange={() => setCaptcha(true)} onExpired={() => setCaptcha(false)} />
+                                    </div>
+                                    <button onClick={createOrderUser}
+                                            className={CheckOrderCss.right + ' col-xxl-4 offset-xxl-1 col-xl-5 offset-xl-2 col-lg-5 ' +
+                                                'offset-lg-2 col-md-5 offset-md-2 col-sm-8 offset-sm-2 col-10 offset-1'}>
+                                        Всё верно
+                                    </button>
                                 </div>
                             </Fade>
                         </div>

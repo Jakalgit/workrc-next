@@ -1,26 +1,25 @@
 /* Стиль блока */
 .create_section {
-    margin-top: 15vh;
-
+    margin-top: 9rem;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .create_text {
     font-family: 'Raleway', sans-serif;
-    font-size: 5rem;
+    font-size: 4rem;
     text-align: center;
 }
 .left_block,
 .right_block {
-    margin-top: 5rem;
+    margin-top: 1rem;
 }
 /* Левый блок */
 .num_mail {
-    margin-top: 5rem;
+    margin-top: 3rem;
 }
 .address {
-    margin-top: 5rem;
+    margin-top: 3rem;
 }
 .address_help {
     justify-content: center;
@@ -30,14 +29,14 @@
     margin-top: 2rem;
 }
 .data {
-    height: 6rem;
+    height: 5rem;
     border-radius: 3rem;
     border-style: none;
     margin-top: 2rem;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
     outline: none;
     font-family: 'Montserrat', sans-serif;
-    font-size: 2.5rem;
+    font-size: 2rem;
     padding-left: 3rem;
     transition: all 0.2s;
 }
@@ -96,7 +95,7 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 .margin {
-    margin-top: 16rem;
+    margin-top: 5.5rem;
 }
 .mini {
     font-family: 'Raleway', sans-serif;
@@ -112,18 +111,19 @@
     height: 8rem;
     background-color: #000;
     color: #fff;
-    border-radius: 0.5rem;
+    border-radius: 1rem;
     font-family: 'Raleway', sans-serif;
     font-size: 3rem;
     font-weight: bold;
     transition: all 0.2s;
     margin-top: 8rem;
+    border-style: none;
 }
 .next:hover {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 .mt {
-    margin-top: 7.8rem;
+    margin-top: 6rem;
 }
 /* Стиль футера */
 .footer {
@@ -140,9 +140,6 @@
     transform: translateY(-50%);
 }
 @media (max-width: 1399px) {
-    .data {
-        font-size: 2.1rem;
-    }
     .small {
         width: 17rem;
     }
@@ -150,8 +147,17 @@
         margin-left: 3rem;
         margin-right: 3rem;
     }
+    .mt {
+        margin-top: 6.1rem;
+    }
 }
 @media (max-width: 1199px) {
+    .create_section {
+        margin-top: 11rem;
+    }
+    .create_text {
+        font-size: 3rem;
+    }
     .data {
         font-size: 1.8rem;
     }
@@ -166,11 +172,10 @@
     }
 }
 @media (max-width: 991px) {
-    .create_text {
-        font-size: 4rem;
-    }
     .data {
         font-size: 1.6rem;
+        height: 4.5rem;
+        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
     }
     .small {
         width: 11.66rem;
@@ -192,10 +197,10 @@
     .next {
         height: 6rem;
         font-size: 2.5rem;
-        margin-top: 11rem;
+        margin-top: 7.5rem;
     }
     .mt {
-        margin-top: 9.5rem;
+        margin-top: 6.9rem;
     }
     .radio {
         width: 1.7rem;
@@ -210,8 +215,10 @@
 @media (max-width: 767px) {
     .data {
         font-size: 1.2rem;
-        height: 4.6rem;
+        margin-top: 1.5rem;
+        height: 4rem;
         border-radius: 2.3rem;
+        box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.25);
     }
     .data_plug {
         height: 4.6rem;
@@ -228,10 +235,10 @@
     .next {
         height: 5rem;
         font-size: 2.1rem;
-        margin-top: 10rem;
+        margin-top: 4.5rem;
     }
     .mt {
-        margin-top: 8.2rem;
+        margin-top: 6.1rem;
     }
     .radio {
         width: 1.5rem;
@@ -242,7 +249,7 @@
         height: 1.5rem;
     }
     .margin {
-        margin-top: 11rem;
+        margin-top: 5rem;
     }
     .empty_text {
         font-size: 4.1rem;
@@ -250,7 +257,7 @@
 }
 @media (max-width: 575px) {
     .create_text {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
     .small {
         width: 21%;
@@ -274,10 +281,13 @@
     .next {
         margin-top: 5rem;
     }
+    .right_block {
+        margin-top: 2rem;
+    }
 }
 @media (max-width: 400px) {
     .create_section {
-        margin-top: 6rem;
+        margin-top: 9rem;
     }
     .small {
         width: 26%;

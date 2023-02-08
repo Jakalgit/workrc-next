@@ -241,9 +241,7 @@ function CreateOrder() {
                                         </div>
                                     </div>
                                     {typeDelivery === '1' ?
-                                        <div>
-
-                                        </div>
+                                        <div/>
                                         :
                                         <div>
                                             {typeDelivery === '2' ?
@@ -306,11 +304,13 @@ function CreateOrder() {
                                                                onClick={() => setTypePay('1')} checked={typePay === '1'}/>
                                                         <h2 className={CreateOrderCss.variant}>Оплата онлайн</h2>
                                                     </div>
-                                                    <div className={CreateOrderCss.way_line + ' col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12'}>
-                                                        <input type="radio" className={CreateOrderCss.radio} name="pay"
-                                                               onClick={() => setTypePay('2')} checked={typePay === '2'}/>
-                                                        <h2 className={CreateOrderCss.variant}>Оплата при получении</h2>
-                                                    </div>
+                                                    <Fade>
+                                                        <div className={CreateOrderCss.way_line + ' col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12'}>
+                                                            <input type="radio" className={CreateOrderCss.radio} name="pay"
+                                                                   onClick={() => setTypePay('2')} checked={typePay === '2'}/>
+                                                            <h2 className={CreateOrderCss.variant}>Оплата при получении</h2>
+                                                        </div>
+                                                    </Fade>
                                                 </div>
                                             </Fade>
                                         }
