@@ -49,7 +49,6 @@ function Catalog({ serverItems }) {
         console.log(user, item)
     }, [user, item])
 
-    /*
     useEffect(() => {
         setItems([])
         fetchPageItems(true, true, null, item._page, JSON.stringify(lineTags)).then(data => {
@@ -76,7 +75,6 @@ function Catalog({ serverItems }) {
             }
         })
     }, [lineTags])
-     */
 
     useEffect(() => {
         if (start) {

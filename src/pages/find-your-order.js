@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import style_css from "@/css/pages/find-your-order.module.css"
 import {fetchOneOrderByNumber, fetchOrdersByPhone} from "@/http/API/orderAPI";
 import height from "@/css/general.module.css"

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import FindLineStyle from "@/css/components/find_line.module.css"
 import style_css from "@/css/pages/find.module.css"
 import height from "@/css/general.module.css"

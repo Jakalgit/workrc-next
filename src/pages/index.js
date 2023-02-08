@@ -1,4 +1,3 @@
-import React from 'react';
 import Footer from "../components/Footer";
 import {CATALOG_ROUTE, DISCOUNT_ROUTE, NEW_ROUTE, POPULAR_ROUTE, REPAIR_ROUTE} from "@/utils/consts"
 import style_css from "../css/pages/index.module.css"

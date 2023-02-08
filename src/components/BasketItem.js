@@ -124,9 +124,12 @@ const BasketItem = (props) => {
         deleteOneBasketItem(props.id).then(() => {
             getAllBasketItems(user._basket.id).then(data => {
                 data.sort((prev, next) => prev.id - next.id)
-                setBasketItems(data)
+                setBasketItems([])
                 props.setItems([])
-                props.setItems(data)
+                setTimeout(() => {
+                    props.setItems(data)
+                }, 50)
+                setBasketItems(data)
             })
         })
     }

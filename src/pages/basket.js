@@ -24,17 +24,19 @@ function BasketPage() {
     const router = useRouter()
 
     const [loading, setLoading] = useState(true)
-    const [drawBasketItems, setDrawBasketItems] = useState(item._basketItems)
+    const [drawBasketItems, setDrawBasketItems] = useState([])
 
     useEffect(() => {
-        getAllBasketItems(user._basket.id).then(data => {
-            if (data !== "Ошибка" ?? data !== "Error") {
-                data.sort((prev, next) => prev.id - next.id)
-                setBasketItems(data)
-                setDrawBasketItems(data)
-                setLoading(false)
-            }
-        })
+        if (user._basket.id !== undefined) {
+            getAllBasketItems(user._basket.id).then(data => {
+                if (data !== "Ошибка" ?? data !== "Error") {
+                    data.sort((prev, next) => prev.id - next.id)
+                    setBasketItems(data)
+                    setDrawBasketItems(data)
+                    setLoading(false)
+                }
+            })
+        }
     }, [user])
 
     const createOrder = () => {

@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {getDownloadURL, getStorage, ref} from "firebase/storage";
 import {BUCKET_URL} from "@/utils/consts";
 import LOAD_IMG from "../img/load.webp"
+import Image from "next/image";
 
 const LoadImage = (props) => {
 
@@ -15,7 +16,7 @@ const LoadImage = (props) => {
 
     if (loading) {
         return (
-            <img src={LOAD_IMG} alt="" className={props.className} onClick={props.onClick}/>
+            <Image src={LOAD_IMG} alt="" className={props.className} onClick={props.onClick}/>
         )
     }
 
