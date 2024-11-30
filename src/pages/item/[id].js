@@ -108,7 +108,7 @@ function ItemPage({ itemServer, title }) {
                                     {itemServer.images.map(image =>
                                         <Carousel.Item>
                                             <div className={style_css.img}>
-                                                <img src={`${process.env.BACKEND_URL}/static/image/${image.filename}`} alt="" className={style_css.image} />
+                                                <img src={`${process.env.IMAGE_URL}/static/image/${image.filename}`} alt="" className={style_css.image} />
                                             </div>
                                         </Carousel.Item>
                                     )}

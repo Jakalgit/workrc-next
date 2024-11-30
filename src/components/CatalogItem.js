@@ -49,7 +49,7 @@ const CatalogItem = (props) => {
                 </div>
                 <div className={ItemCss.img + ' col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12'}>
                     {props.item.filename ?
-                        <img src={`${process.env.BACKEND_URL}/static/image/${props.item.filename}`} alt="" className={ItemCss.item_image} onClick={itemClick}/>
+                        <img src={`${process.env.IMAGE_URL}/static/image/${props.item.filename}`} alt="" className={ItemCss.item_image} onClick={itemClick}/>
                         :
                         <div className={ItemCss.item_image}/>
                     }
