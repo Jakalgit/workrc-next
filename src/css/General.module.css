@@ -1,0 +1,20 @@
+.height {
+    min-height: 85vh;
+}
+.block_loading {
+    text-align: center;
+    margin-bottom: 20rem;
+    margin-top: 20rem;
+}
+.loading {
+    display: flex;
+    height: 90vh;
+
+    align-items: center;
+    justify-content: center;
+}
+@media (max-width: 575px) {
+    .height {
+        min-height: 83vh;
+    }
+}
