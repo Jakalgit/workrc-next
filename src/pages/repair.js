@@ -1,7 +1,6 @@
 import {useEffect, useState} from 'react';
 import style_css from "@/css/pages/repair.module.css"
 import Footer from "../components/Footer";
-import {Fade, Flip, Bounce} from "react-reveal"
 import RepairWidget from "@/components/RepairWidget";
 import Alert from "../components/Alert";
 import {Carousel} from "react-bootstrap";
@@ -56,10 +55,10 @@ function Repair() {
             <div className={style_css.repair}>
                 <div className="container">
                     <div className="row">
-                        <Fade cascade>
+                        <div>
                             <h1 className={style_css.rep}>Ремонт моделей</h1>
-                        </Fade>
-                        <Fade>
+                        </div>
+                        <div>
                             <Carousel variant='dark'>
                                 <Carousel.Item>
                                     <div className={style_css.slider_item}>
@@ -97,20 +96,20 @@ function Repair() {
                                 работают <p className={style_css.bold}>проффесионалы</p> со стажем <p className={style_css.bold}>более
                                 нескольких лет.</p>
                             </h2>
-                        </Fade>
+                        </div>
                     </div>
                 </div>
             </div>
-            <Fade bottom>
+            <div>
                 <div className={style_css.prices}>
                     <div className="container">
                         <div className="row">
                             <div className="col-xxl-6 col-xl-6 col-md-6 col-sm-6 col-6">
-                                <Fade bottom>
+                                <div>
                                     <h1 className={style_css.text}>Услуги</h1>
-                                </Fade>
+                                </div>
                                 <div className={style_css.column}>
-                                    <Fade cascade>
+                                    <div>
                                         <div className={style_css.line}>
                                             <div className={style_css.graph}/>
                                             <h2 className={style_css.service}>Диагностика модели</h2>
@@ -145,15 +144,15 @@ function Repair() {
                                             <div className={style_css.graph}></div>
                                             <h2 className={style_css.service}>Покраска кузова</h2>
                                         </div>
-                                    </Fade>
+                                    </div>
                                 </div>
                             </div>
                             <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
-                                <Fade bottom>
+                                <div>
                                     <h1 className={style_css.text}>Цены</h1>
-                                </Fade>
+                                </div>
                                 <div className={style_css.column} style={{marginLeft: "0"}}>
-                                    <Fade cascade>
+                                    <div>
                                         <div className={style_css.line + ' ' + style_css.prc} style={{justifyContent: "center"}}>
                                             <h2 className={style_css.service + ' ' + style_css.mont} style={{fontWeight: "bold"}}>Бесплатно</h2>
                                         </div>
@@ -184,23 +183,25 @@ function Repair() {
                                                 Обговаривается индивидуально
                                             </h2>
                                         </div>
-                                    </Fade>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </Fade>
+            </div>
             <div className={style_css.contacts}>
-                <Fade bottom>
+                <div>
                     <h2 className={style_css.rep_des}>Точное время работы <p className={style_css.bold}>обговаривается индивидуально</p>.</h2>
-                </Fade>
-                <Bounce cascade>
+                </div>
+                {/*
+                <div>
                     <button className={style_css.request} onClick={() => setShow(true)}>Оставить заявку</button>
-                </Bounce>
-                <Bounce cascade>
+                </div>
+                */}
+                <div>
                     <a className={style_css.number} href="tel:+79859532696">+7(916)-639-88-04</a>
-                </Bounce>
+                </div>
             </div>
             <Footer />
         </div>

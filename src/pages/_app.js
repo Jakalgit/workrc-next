@@ -11,8 +11,6 @@ import Navbar from "@/components/Navbar";
 import {getCookie} from "cookies-next";
 import {setUserState} from "@/store/actions-creators/user";
 import {setItemState} from "@/store/actions-creators/item";
-import firebase from "firebase/compat/app";
-import {firebaseConfig} from "@/utils/config";
 
 function App({Component, pageProps}) {
 

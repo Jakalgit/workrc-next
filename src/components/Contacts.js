@@ -4,7 +4,6 @@ import MessageModal from "./MessageWidget";
 import TELEGRAM from "../img/telegram.webp"
 import CHAT from "../img/chat.webp"
 import Image from "next/image";
-import {Fade} from "react-reveal";
 
 function Contacts() {
 
@@ -18,22 +17,20 @@ function Contacts() {
         <div>
             <MessageModal show={showMessage} updateShow={(value) => updateShow(value)}/>
             <div>
-                {!showMessage ?
+                {!showMessage && (
                     <div className={style_css.contacts}>
-                        <Fade>
+                        <div>
                             <a href="https://t.me/Pash_Rc" target="_blank" className={style_css.telegram + ' ' + style_css.circle}>
                                 <Image src={TELEGRAM} alt="" className={style_css.tg + ' ' + style_css.image}/>
                             </a>
-                        </Fade>
-                        <Fade>
+                        </div>
+                        <div>
                             <div className={style_css.chats + ' ' + style_css.circle} onClick={(e) => {setShowMessage(true); e.stopPropagation()}}>
                                 <Image src={CHAT} alt="" className={'chat ' + style_css.image}/>
                             </div>
-                        </Fade>
+                        </div>
                     </div>
-                    :
-                    <div/>
-                }
+                )}
             </div>
         </div>
     );

@@ -2,7 +2,6 @@ import {useState} from 'react';
 import styles from "@/css/components/tags_line.module.css"
 import {CSSTransition} from "react-transition-group";
 import IMG_CLOSE_BLACK from "../img/x_black.webp"
-import {Fade} from "react-reveal";
 import {useActions} from "@/hooks/useActions";
 import Image from "next/image";
 
@@ -71,14 +70,14 @@ const TagsLine = ({setTags, scrollTo}) => {
         <div className="container">
             <div className={styles.row + ' row'}>
                 <div className={styles.tags_line}>
-                    <Fade cascade>
+                    <div>
                         {models.map(model =>
                             <div onClick={() => visibleModal(model)}
                                  key={model.name+1} className={styles.dropdown_tag}>
                                 <h1 key={model.name+2} className={styles.tag_text}>{model.name}</h1>
                             </div>
                         )}
-                    </Fade>
+                    </div>
                 </div>
                 <CSSTransition
                     in={start}

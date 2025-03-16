@@ -1,13 +1,12 @@
 import {useEffect, useRef, useState} from 'react';
 import CatalogCss from '@/css/pages/catalog.module.css'
 import CatalogItem from '@/components/CatalogItem'
-import {Fade} from 'react-reveal';
 import Footer from "../components/Footer";
 import {fetchPageItems} from "@/http/API/itemAPI"
 import Pagination from "@/components/Pagination";
 import Alert from "@/components/Alert";
 import {Spinner} from "react-bootstrap";
-import {REPAIR_ROUTE} from "@/utils/consts";
+import {CATALOG_ROUTE, REPAIR_ROUTE} from "@/utils/consts";
 import general from "../css/General.module.css";
 import FindLine from "../components/FindLine";
 import TagsLine from "@/components/TagsLine";
@@ -18,13 +17,12 @@ import {useActions} from "@/hooks/useActions";
 import {wrapper} from "@/store";
 import {connect} from "react-redux";
 import {setTotalCount} from "@/store/actions-creators/item";
-import {setStore} from "@/pages/_app";
 
 function Catalog({ serverItems, queryPage, pageCount, maxPrice, minPrice, tagIds, finder }) {
 
     const user = useTypedSelector(state => state.user)
-    const {setCurrentTags, setTotalCount} = useActions()
-    const router = useRouter()
+    const {setCurrentTags} = useActions();
+    const router = useRouter();
 
     const itemsRef = useRef(null);
 
@@ -62,77 +60,73 @@ function Catalog({ serverItems, queryPage, pageCount, maxPrice, minPrice, tagIds
         setStyle(value)
     }
 
-    const updateLineTags = (value) => {
-        setLineTags(value)
-    }
-
-    const scrollTo = () => {
-        window.scrollTo({
-            top: itemsRef.current.offsetTop,
-            left: 0,
-            behavior: "smooth",
+    const toCatalog = async (tagId) => {
+        const query = router.query;
+        let tagIds = []
+        try {
+            tagIds = JSON.parse(query.tagIds) || [];
+        } catch {}
+        await router.push({
+            pathname: CATALOG_ROUTE,
+            query: { ...router.query, tagIds: JSON.stringify([...tagIds, tagId]) },
         })
     }
 
     return (
-        <div>
+        <>
             <Head>
                 <title>Каталог</title>
             </Head>
             <Alert start={start} variant={style} text={message} updateStart={(value) => updateStart(value)}/>
             <div className={CatalogCss.cards + ' container'}>
-                <TagsLine scrollTo={() => scrollTo()} setTags={(value) => updateLineTags(value)} />
+
             </div>
             <div className="container">
                 <div className="row">
-                    <Fade left>
-                        <div onClick={() => router.push(NEW_ROUTE)} className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6">
-                            <div className={CatalogCss.card}>
-                                <h2 className={CatalogCss.card_text}>Новинки</h2>
-                                <h2 className={CatalogCss.card_icon} style={{backgroundColor: "#00E5FF"}}>new</h2>
-                            </div>
+                    <div onClick={() => toCatalog(2)}
+                         className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6">
+                        <div className={CatalogCss.card}>
+                            <h2 className={CatalogCss.card_text}>Новинки</h2>
+                            <h2 className={CatalogCss.card_icon} style={{backgroundColor: "#00E5FF"}}>new</h2>
                         </div>
-                    </Fade>
-                    <Fade left>
-                        <div onClick={() => router.push(POPULAR_ROUTE)} className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6">
-                            <div className={CatalogCss.card}>
-                                <h2 className={CatalogCss.card_text}>Популярное</h2>
-                                <h2 className={CatalogCss.card_icon + ' ' + CatalogCss.star} style={{backgroundColor: "#FDD835"}}>★</h2>
-                            </div>
+                    </div>
+                    <div onClick={() => toCatalog(0)}
+                         className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6">
+                        <div className={CatalogCss.card}>
+                            <h2 className={CatalogCss.card_text}>Популярное</h2>
+                            <h2 className={CatalogCss.card_icon + ' ' + CatalogCss.star}
+                                style={{backgroundColor: "#FDD835"}}>★</h2>
                         </div>
-                    </Fade>
-                    <Fade right>
-                        <div onClick={() => router.push(DISCOUNT_ROUTE)} className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6">
-                            <div className={CatalogCss.card}>
-                                <h2 className={CatalogCss.card_text}>Акции</h2>
-                                <h2 className={CatalogCss.card_icon} style={{backgroundColor: "#E41515"}}>%</h2>
-                            </div>
+                    </div>
+                    <div onClick={() => toCatalog(1)}
+                         className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6">
+                        <div className={CatalogCss.card}>
+                            <h2 className={CatalogCss.card_text}>Акции</h2>
+                            <h2 className={CatalogCss.card_icon} style={{backgroundColor: "#E41515"}}>%</h2>
                         </div>
-                    </Fade>
-                    <Fade right>
-                        <div onClick={() => router.push(REPAIR_ROUTE)} className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6">
-                            <div className={CatalogCss.card}>
-                                <h2 className={CatalogCss.card_text}>Ремонт</h2>
-                                <h2 className={CatalogCss.card_icon} style={{backgroundColor: "#000"}}>🛠</h2>
-                            </div>
+                    </div>
+                    <div onClick={() => router.push(REPAIR_ROUTE)}
+                         className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6">
+                        <div className={CatalogCss.card}>
+                            <h2 className={CatalogCss.card_text}>Ремонт</h2>
+                            <h2 className={CatalogCss.card_icon} style={{backgroundColor: "#000"}}>🛠</h2>
                         </div>
-                    </Fade>
+                    </div>
                 </div>
             </div>
-
             <div ref={itemsRef}/>
-
-            <Fade top>
-                <FindLine length={12} />
-            </Fade>
-
-            {lineTags.length !== 0 &&
+            <FindLine length={12}/>
+            {(tagIds.length !== 0 || finder.length !== 0) &&
                 <div className="container">
                     <div className={CatalogCss.block_clean + ' row'}>
-                        <Fade bottom>
-                            <button onClick={() => {setLineTags([]); setCurrentTags([])}}
-                                    className={CatalogCss.clean_tags}>Очистить теги</button>
-                        </Fade>
+                        <div>
+                            <button
+                                onClick={() => router.push(CATALOG_ROUTE)}
+                                className={CatalogCss.clean_tags}
+                            >
+                                Очистить фильтры/поиск
+                            </button>
+                        </div>
                     </div>
                 </div>
             }
@@ -152,30 +146,25 @@ function Catalog({ serverItems, queryPage, pageCount, maxPrice, minPrice, tagIds
                             )}
                         </div>
                         :
-                        <Fade>
+                        <div>
                             <div className="row">
-                                <div className={general.block_loading}>
-                                    <Spinner animation="border" variant="secondary"/>
+                                <div style={{ fontSize: '14px'}} className={general.block_loading}>
+                                    Товаров не найдено
                                 </div>
                             </div>
-                        </Fade>
+                        </div>
                     }
                 </div>
             </div>
-
-
             <div className="container">
                 <div className="row">
-                    <Fade left>
-                        <div className={CatalogCss.page}>
-                            <Pagination />
-                        </div>
-                    </Fade>
+                    <div className={CatalogCss.page}>
+                        <Pagination queryPage={queryPage} pageCount={pageCount}/>
+                    </div>
                 </div>
             </div>
-
-            <Footer />
-        </div>
+            <Footer/>
+        </>
     );
 }
 
@@ -188,9 +177,9 @@ export const getServerSideProps = wrapper.getServerSideProps(() => async ({query
     try {
         tagIds = query.tagIds ? JSON.parse(query.tagIds) : [];
     } catch {}
-    let finder = query.finder | null;
+    let finder = query.finder || "";
 
-    let dataItems = {rows: [], pageCount: 1};
+    let dataItems = {records: [], totalPages: 1};
 
     try {
         dataItems = await fetchPageItems({minPrice, maxPrice, page, tagIds, finder});
@@ -198,11 +187,9 @@ export const getServerSideProps = wrapper.getServerSideProps(() => async ({query
         console.log(e);
     }
 
-    console.log(dataItems)
-
     return {
         props: {
-            serverItems: dataItems.rows,
+            serverItems: dataItems.records,
             queryPage: page, maxPrice, minPrice, tagIds, finder, pageCount: dataItems.totalPages,
         }
     }

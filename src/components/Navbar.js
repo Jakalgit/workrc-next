@@ -23,7 +23,6 @@ function NavBar() {
                 <Navbar.Collapse id="basic-navbar-nav" style={{justifyContent: "flex-end"}}>
                     <Nav>
                         <Link className={style_css.navbar_link + ' ' + style_css.navbar_link_user} href={CATALOG_ROUTE}>Каталог</Link>
-                        <Link className={style_css.navbar_link + ' ' + style_css.navbar_link_user} href={FIND_ROUTE}>Поиск</Link>
                         <Link className={style_css.navbar_link + ' ' + style_css.navbar_link_user} href={FINDYOURORDER_ROUTE}>Ваш заказ</Link>
                         <Link className={style_css.navbar_link + ' ' + style_css.navbar_link_user} href={DELANDPAY_ROUTE}>Доставка и оплата</Link>
                         <Link className={style_css.navbar_link + ' ' + style_css.navbar_link_user} href={ABOUT_ROUTE}>О нас</Link>

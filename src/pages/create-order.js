@@ -7,7 +7,6 @@ import {Helmet} from "react-helmet";
 import {Modal, Spinner} from "react-bootstrap";
 import {fetchOneItem} from "@/http/API/itemAPI";
 import general from "../css/General.module.css";
-import {Fade} from "react-reveal";
 import Script from "next/script";
 import Head from "next/head";
 import {useTypedSelector} from "@/hooks/useTypedSelector";
@@ -394,9 +393,9 @@ function CreateOrder() {
                     <Footer />
                 </div>
                 :
-                <Fade>
+                <div>
                     <h2 className={CreateOrderCss.empty_text}>Заполните корзину</h2>
-                </Fade>
+                </div>
             }
         </>
     );

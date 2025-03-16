@@ -8,7 +8,6 @@ import {THANKS_ROUTE} from "@/utils/consts";
 import Footer from "../components/Footer";
 import general from "../css/General.module.css";
 import {Spinner} from "react-bootstrap";
-import {Fade} from "react-reveal";
 import Head from "next/head";
 import {useTypedSelector} from "@/hooks/useTypedSelector";
 import {useRouter} from "next/router";
@@ -235,9 +234,9 @@ function CheckOrder() {
                     </div>
                 </div>
                 :
-                <Fade>
+                <div>
                     <h2 className={BasketPageCss.empty_text}>Ошибка, вернитесь в корзину</h2>
-                </Fade>
+                </div>
             }
             <Footer />
             <ModalWindow show={showModal} text={modalText} onHide={() => setShowModal(false)} />

@@ -1,7 +1,6 @@
 import React from 'react';
 import DeliveryAndPayCss from '@/css/pages/delivery_and_pay.module.css'
 import Footer from "../components/Footer";
-import {Fade} from "react-reveal"
 import Head from "next/head";
 
 function DeliveryAndPay() {
@@ -11,7 +10,7 @@ function DeliveryAndPay() {
                 <title>Доставка и оплата</title>
             </Head>
             <div className="section-block">
-                <Fade opposite cascade collapse>
+                <div>
                     <div className="container">
                         <div className="row">
                             <h2 className={DeliveryAndPayCss.dandp_text + ' ' + DeliveryAndPayCss.up_text}>Доставка и оплата</h2>
@@ -68,7 +67,7 @@ function DeliveryAndPay() {
                             </div>
                         </div>
                     </div>
-                </Fade>
+                </div>
             </div>
             <Footer />
         </div>

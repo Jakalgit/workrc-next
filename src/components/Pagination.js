@@ -16,17 +16,39 @@ function Page({ queryPage, pageCount }) {
         pages.push(i)
     }
 
-    const setCurrentPage = (page, not) => {
-        if (page !== not) {
-            router.push({
+    const setCurrentPage = async (page) => {
+        if (page !== queryPage) {
+            await router.push({
                 pathname: CATALOG_ROUTE,
                 query: {...router.query, page: page}
-            }).then()
+            })
         }
     }
 
     return (
-        <></>
+        <div style={{ display: "flex", justifyContent: "center", gap: 10, fontSize: 16 }}>
+            {queryPage - 1 > 0 && (
+                <button onClick={() => setCurrentPage(queryPage - 1)}>
+                    {queryPage - 1}
+                </button>
+            )}
+            <button
+                style={{ border: '0.1rem solid red' }}
+                onClick={() => setCurrentPage(queryPage)}
+            >
+                {queryPage}
+            </button>
+            {queryPage + 1 <= pageCount && (
+                <button onClick={() => setCurrentPage(queryPage + 1)}>
+                    {queryPage + 1}
+                </button>
+            )}
+            {queryPage + 2 <= pageCount && (
+                <span>
+                    ...
+                </span>
+            )}
+        </div>
     )
 }
 

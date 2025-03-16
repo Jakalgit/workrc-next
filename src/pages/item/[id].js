@@ -9,9 +9,7 @@ import {
     getBasketItem,
     incrementBasketItem, setCountBasketItem
 } from "@/http/API/basketItemAPI"
-import {Carousel, Spinner} from "react-bootstrap";
-import {Fade} from "react-reveal";
-import LoadImage from "@/components/LoadImage";
+import {Carousel} from "react-bootstrap";
 import CHECK from "@/img/check.webp"
 import X_BLACK from "@/img/x_black.webp"
 import CHEVRON_LEFT from "@/img/chevron-left.webp"
@@ -19,36 +17,17 @@ import CHEVRON_RIGHT from "@/img/chevron-right.webp"
 import {useRouter} from "next/router";
 import {useTypedSelector} from "@/hooks/useTypedSelector";
 import {useActions} from "@/hooks/useActions";
-import Alert from "@/components/Alert";
 import Head from "next/head";
 import {wrapper} from "@/store";
-import {getCookie} from "cookies-next";
-import {setUserState} from "@/store/actions-creators/user";
-import {setItemState} from "@/store/actions-creators/item";
 import Image from "next/image";
-import {setStore} from "@/pages/_app";
 
 function ItemPage({ itemServer, title }) {
 
-    console.log(itemServer)
-
-    const item = useTypedSelector(state => state.item)
-    const user = useTypedSelector(state => state.user)
-
-    const {setBasketItems} = useActions()
-
-    const router = useRouter()
-
-    const [count, setCount] = useState(itemServer.count)
-
-    const {id} = router.query
+    const [count, setCount] = useState(0)
 
     const [start, setStart] = useState(false)
-    const [message, setMessage] = useState('')
-    const [style, setStyle] = useState('primary')
 
     const [price, setPrice] = useState('')
-    const [oldPrice, setOldPrice] = useState('')
 
     useEffect(() => {
         if (itemServer.price) {
@@ -70,27 +49,15 @@ function ItemPage({ itemServer, title }) {
     }, [start])
 
     const increment = () => {
-        let _count = count
-        if (count < 99) {
-            incrementBasketItem(id, user._basket.id, _count + 1).then(() => {
-                setCount(prevState => prevState + 1)
-                setBasketItems(item._basketItems.map(el => el.id === id ? {...el, count: _count + 1} : el))
-            })
-        }
+        if (count < 99) setCount(prevState => prevState + 1)
     }
 
     const decrement = () => {
-        let _count = count
-        if (count > 1) {
-            decrementBasketItem(id, user._basket.id, _count - 1).then(() => {
-                setCount(prevState => prevState - 1)
-                setBasketItems(item._basketItems.map(el => el.id === id ? {...el, count: _count - 1} : el))
-            })
-        }
+        if (count > 0) setCount(prevState => prevState - 1)
     }
 
-    const updateStart = (value) => {
-        setStart(value)
+    const addToBasket = () => {
+        alert("Внимание! Онлайн заказ временно не работает, вы можете позвонить по номеру +7(916)-639-88-04")
     }
 
     return (
@@ -98,8 +65,7 @@ function ItemPage({ itemServer, title }) {
             <Head>
                 <title>{title}</title>
             </Head>
-            <Alert start={start} variant={style} text={message} updateStart={(value) => updateStart(value)} />
-            <Fade top>
+            <div>
                 <div className={style_css.item_block}>
                     <div className="container">
                         <div className="row">
@@ -108,7 +74,7 @@ function ItemPage({ itemServer, title }) {
                                     {itemServer.images.map(image =>
                                         <Carousel.Item>
                                             <div className={style_css.img}>
-                                                <img src={`http://195.133.30.5:5000/static/image/${image.filename}`} alt="" className={style_css.image} />
+                                                <img src={`${process.env.NEXT_PUBLIC_BACKEND_URL}static/image/${image.filename}`} alt="" className={style_css.image} />
                                             </div>
                                         </Carousel.Item>
                                     )}
@@ -146,7 +112,9 @@ function ItemPage({ itemServer, title }) {
                                     </div>
                                     <h2 className={style_css.price + ' col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12'}>{price + ' ₽'}</h2>
                                     <button
-                                            className={style_css.add_to_bag + ' col-xxl-8 offset-xxl-2 col-xl-8 offset-xl-2 col-lg-8 offset-lg-2 col-md-10 offset-md-1 col-sm-8 offset-sm-2 col-10 offset-1'}>
+                                        onClick={addToBasket}
+                                        className={style_css.add_to_bag + ' col-xxl-8 offset-xxl-2 col-xl-8 offset-xl-2 col-lg-8 offset-lg-2 col-md-10 offset-md-1 col-sm-8 offset-sm-2 col-10 offset-1'}
+                                    >
                                         Добавить в корзину
                                     </button>
                                 </div>
@@ -154,23 +122,23 @@ function ItemPage({ itemServer, title }) {
                         </div>
                     </div>
                 </div>
-            </Fade>
+            </div>
 
-            <Fade bottom>
+            <div>
                 <div className={style_css.des_back}>
                     <div className="container">
                         <div className="row">
                             {itemServer.infoBlocks.map(i =>
-                                <Fade>
+                                <div>
                                     <h2 className={style_css.description + ' col-xxl-12 offset-xxl-0 col-xl-12 offset-xl-0 col-lg-12 offset-lg-0 col-md-12 offset-md-0 col-sm-12 offset-sm-0 col-10 offset-1'}>
                                         {i.text}
                                     </h2>
-                                </Fade>
+                                </div>
                             )}
                         </div>
                     </div>
                 </div>
-            </Fade>
+            </div>
             <Footer />
         </div>
     );

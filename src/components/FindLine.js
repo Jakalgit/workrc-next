@@ -1,21 +1,22 @@
 import {useState} from 'react';
 import style_css from "@/css/components/find_line.module.css"
 import {useActions} from "@/hooks/useActions";
-import {FIND_ROUTE} from "@/utils/consts";
+import {CATALOG_ROUTE, FIND_ROUTE} from "@/utils/consts";
 import {useRouter} from "next/router";
 
 function FindLine({length}) {
 
-    const {setSearchValue} = useActions()
     const router = useRouter()
 
-    const [search, setSearch] = useState()
+    const [search, setSearch] = useState(router.query.finder || "")
 
-    const searchClick = () => {
+    const searchClick = async () => {
 
         if (search) {
-            setSearchValue(search)
-            router.push(FIND_ROUTE).then()
+            await router.push({
+                pathname: CATALOG_ROUTE,
+                query: {...router.query, finder: search}
+            })
         }
 
     }
