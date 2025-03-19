@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import style_css from "../css/components/contacts.module.css"
-import MessageModal from "./MessageWidget";
 import TELEGRAM from "../img/telegram.webp"
 import CHAT from "../img/chat.webp"
 import Image from "next/image";
@@ -15,7 +14,6 @@ function Contacts() {
 
     return (
         <div>
-            <MessageModal show={showMessage} updateShow={(value) => updateShow(value)}/>
             <div>
                 {!showMessage && (
                     <div className={style_css.contacts}>

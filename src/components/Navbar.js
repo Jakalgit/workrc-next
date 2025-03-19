@@ -6,7 +6,6 @@ import {
     BASKET_ROUTE,
     CATALOG_ROUTE,
     DELANDPAY_ROUTE,
-    FIND_ROUTE,
     FINDYOURORDER_ROUTE
 } from "@/utils/consts";
 import {useTypedSelector} from "@/hooks/useTypedSelector";

@@ -1,6 +1,5 @@
 import ItemCss from '../css/components/catalog_item.module.css'
 import {ITEM_ROUTE} from '@/utils/consts'
-import {createBasketItem, getAllBasketItems} from "@/http/API/basketItemAPI";
 import {useRouter} from "next/router";
 import {useTypedSelector} from "@/hooks/useTypedSelector";
 import {useActions} from "@/hooks/useActions";

@@ -1,8 +1,3 @@
-import {useState} from 'react';
-import {Pagination} from "react-bootstrap";
-import PageItem from "./PainationItem";
-import {useTypedSelector} from "@/hooks/useTypedSelector";
-import {useActions} from "@/hooks/useActions";
 import {useRouter} from "next/router";
 import {CATALOG_ROUTE} from "@/utils/consts";
 
